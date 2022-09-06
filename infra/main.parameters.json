@@ -1,0 +1,113 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "aksAdminGroupObjectId": {
+            "value": null
+        },
+        "tlsCertSecretId": {
+            "value": null
+        },
+        "privateDnsZoneName": {
+            "value": "columbiaasia.com"
+        },
+        "location": {
+            "value": null
+        },
+        "vNets": {
+            "value": [
+                {
+                    "name": "uat-mcare21-aks-vnet",
+                    "addressPrefixes": [
+                        "10.55.0.0/16"
+                    ],
+                    "subnets": [
+                        {
+                            "name": "uat-mcare21-appgateway-subnet",
+                            "addressPrefix": "10.55.4.0/24",
+                            "nsgName": null, 
+                            "udrName": null,
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        },
+                        {
+                            "name": "uat-mcare21-aks-subnet",
+                            "addressPrefix": "10.55.0.0/22",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        },
+                        {
+                            "name": "GatewaySubnet",
+                            "addressPrefix": "10.55.6.0/24",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        },
+                        {
+                            "name": "uat-mcare21-private-endpoint-subnet",
+                            "addressPrefix": "10.55.5.0/27",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        },
+                        {
+                            "name": "uat-mcare21-apim-subnet",
+                            "addressPrefix": "10.55.7.0/24",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        }
+                    ]
+                },
+                {
+                    "name": "uat-mcare21-vm-network",
+                    "addressPrefixes": [
+                        "10.56.0.0/16"
+                    ],
+                    "subnets": [
+                        {
+                            "name": "uat-mcare21-vm-subnet",
+                            "addressPrefix": "10.56.0.0/24",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        },
+                        {
+                            "name": "AzureBastionSubnet",
+                            "addressPrefix": "10.56.1.0/26",
+                            "udrName": null,
+                            "nsgName": null,
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled",
+                            "serviceEndpoints": null,
+                            "delegations": null
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": {
+            "value": {
+                "environment": "dev"
+            }
+        }
+    }
+}
